@@ -1,0 +1,139 @@
+//Define a rule for handling incomming data
+rule "Arduino_RX"
+
+ when
+
+     Item Arduino received update
+
+ then
+
+      //logInfo("Arduino.rules", "Data Received: " + Arduino.state.toString)
+
+      var String source = Arduino.state.toString.split('_').get(0)
+      //logInfo("Arduino.rules", "sourceString: " + source)
+
+      var String condition =  Arduino.state.toString.split('_').get(1)
+      //logInfo("Arduino.rules", "conditionString: " + condition)
+
+      //var String temperature = Arduino.state.toString.split('_').get(2)
+      //logInfo("Arduino.rules", "temperatureString: " + temperature)
+
+      if(source == "1"){
+
+        Arduino_source.postUpdate("Tam")
+
+        Arduino_condition.postUpdate(condition)
+
+        //Arduino_temperature.postUpdate(temperature)
+      }
+
+
+      if(source == "2"){
+
+        Arduino_sourceB.postUpdate("DMD")
+
+        Arduino_conditionB.postUpdate(condition)
+
+        Arduino_temperatureB.postUpdate(temperature)
+      }
+
+
+
+      if(source == "3"){
+
+        Arduino_sourceC.postUpdate("Sand Ace")
+
+        Arduino_conditionC.postUpdate(condition)
+
+        //Arduino_temperatureF.postUpdate(temperature)
+      }
+
+
+
+      if(source == "4"){
+
+        Arduino_sourceD.postUpdate("Tripple Threat")
+
+        Arduino_conditionD.postUpdate(condition)
+
+        //Arduino_temperatureF.postUpdate(temperature)
+      }
+
+
+      if(source == "5"){
+
+        Arduino_sourceE.postUpdate("No Salad")
+
+        Arduino_conditionE.postUpdate(condition)
+
+        //Arduino_temperatureF.postUpdate(temperature)
+      }
+
+
+
+      if(source == "6"){
+
+        Arduino_sourceF.postUpdate("WIM")
+
+        Arduino_conditionF.postUpdate(condition)
+
+        //Arduino_temperatureF.postUpdate(temperature)
+      }
+
+
+
+      if(source == "7"){
+
+        Arduino_sourceG.postUpdate("MAT")
+
+        Arduino_conditionG.postUpdate(condition)
+
+        //Arduino_temperatureF.postUpdate(temperature)
+      }
+
+end
+
+
+//Define a rule for outgoing data
+rule "Arduino_TX"
+
+ when
+
+     Item Switch_A changed //from OFF to ON
+
+ then
+
+     //define a variable for the state of the switch
+     var switch_A_state = Switch_A.state as OnOffType
+
+     //send the data to the arduino
+     sendCommand (Arduino, "1_" + switch_A_state + "\n")
+
+     //send a log message to the OpenHab log viewer
+     logInfo("Arduino.rules", "Switch_A State: " + Switch_A.state.toString)
+ 
+ end
+
+
+rule "time_changes"
+
+ when
+
+    Item Date changed
+ 
+ then
+
+     //define a variable for the state of the switch
+     //var switch_A_state = Switch_A.state as OnOffType
+
+     var switch_A_state = "GO"
+
+     //send the data to the arduino
+     sendCommand (Arduino, "1_" + switch_A_state + "\n")
+
+     sendCommand (Arduino, "4_" + switch_A_state + "\n")
+
+     //send a log message to the OpenHab log viewer
+     logInfo("Arduino.rules", "Switch_A State: " + Switch_A.state.toString)
+
+ end

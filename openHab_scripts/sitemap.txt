@@ -1,0 +1,51 @@
+sitemap default label="Sitemap"
+{
+
+    //team tam
+    //Text   item=Arduino_source  label="Team"
+    Text   item=Arduino_condition  label="Team Tam: The Blue Effect is "
+    //Text   item=Arduino_temperature  label="Temperature"
+
+    //team DMD
+    //Text   item=Arduino_sourceB  label="Team"
+    Text   item=Arduino_conditionB  label="Team DMD: The Garbage Type is "
+    //Text   item=Arduino_temperatureB  label="TemperatureB"
+
+    //Sand Ace
+    //Text   item=Arduino_sourceC  label="Team"
+    Text   item=Arduino_conditionC  label="Team Sand Ace: ConditionC"
+    //Text   item=Arduino_temperatureC  label="TemperatureC"
+
+    //Tripple Threat
+    //Text   item=Arduino_sourceD  label="Team"
+    Text   item=Arduino_conditionD  label="Team Tripple Threat: Is there an Umbrella? "
+    //Text   item=Arduino_temperatureD  label="TemperatureD"
+
+    //No Salad
+    //Text   item=Arduino_sourceE  label="Team"
+    Text   item=Arduino_conditionE  label="Team No Salad: The Internet Connection is "
+    //Text   item=Arduino_temperatureE  label="TemperatureE"
+
+    //WIM
+    //Text   item=Arduino_sourceF  label="Team"
+    Text   item=Arduino_conditionF  label="Team Wim: The Closet Needs "
+    //Text   item=Arduino_temperatureF  label="TemperatureF"
+
+    //MAT
+    //Text   item=Arduino_sourceG  label="Team"
+    Text   item=Arduino_conditionG  label="Team Mat: Is There a Friend at the Door? "
+    //Text   item=Arduino_temperatureG  label="TemperatureG"
+
+
+
+
+
+
+    Text   item=Date label="Date"
+
+    Switch item=Switch_A label="Switch_A"
+    //Switch item=Switch_B label="Switch_B"
+
+     Text   item=Arduino label="arduino_string_S0"
+
+} DMD

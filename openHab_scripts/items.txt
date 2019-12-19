@@ -1,0 +1,52 @@
+//create an Item for the Arduino to RPI Connection Using GPIOs 10-RX and 08-TX This requires the 
+//GPIO and Serial bindings The UART port also needs to be changed from ACM0 to S0 
+//https://spellfoundry.com/2016/05/29/configuring-gpio-serial-port-raspbian-jessie-including-pi-3/
+//syntax:
+//TYPE NAME LABEL SERIALCONNECTION
+String Arduino "Arduino [%s]" {serial="/dev/ttyUSB0@9600"}
+//String Arduino "Arduino [%s]" {serial="/dev/ttyACM0@9600"}
+//create items for the basicUI sitemap to display incomming data
+//Arduino_1
+String Arduino_source "source [%s]"
+String Arduino_condition "condition [%s]"
+String Arduino_temperature "temperature [%s]"
+
+//Arduino_2
+String Arduino_sourceB "sourceB [%s]"
+String Arduino_conditionB "conditionB [%s]"
+String Arduino_temperatureB "temperatureB [%s]"
+
+//Arduino_3
+String Arduino_sourceC "sourceB [%s]"
+String Arduino_conditionC "conditionB [%s]"
+String Arduino_temperatureC "temperatureB [%s]"
+
+//Arduino_4
+String Arduino_sourceD "sourceB [%s]"
+String Arduino_conditionD "conditionB [%s]"
+String Arduino_temperatureD "temperatureB [%s]"
+
+//Arduino_5
+String Arduino_sourceE "sourceB [%s]"
+String Arduino_conditionE "conditionB [%s]"
+String Arduino_temperatureE "temperatureB [%s]"
+
+//Arduino_6
+String Arduino_sourceF "sourceF [%s]"
+String Arduino_conditionF "conditionF [%s]"
+//String Arduino_temperatureF  "temperatureF [%s]"
+
+//Arduino_7
+String Arduino_sourceG "sourceB [%s]"
+String Arduino_conditionG "conditionB [%s]"
+String Arduino_temperatureG "temperatureB [%s]"
+
+//create items for the sitemap switches
+//the change in states triggers a sendCommand to Arduino command in arduino.rules
+//nano  ../../etc/openhab2/rules/arduino.rules
+Switch Switch_A "Switch_A"
+Switch Switch_B "State_B [%s]"
+
+
+//create an Item for the time
+DateTime Date  "Date [%1$tA, %1$td.%1$tm.%1$tY %1$tH:%1$tM]"  { channel="ntp:ntp:local:dateTime" }
